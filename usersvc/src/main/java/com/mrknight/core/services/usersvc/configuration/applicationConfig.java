@@ -13,9 +13,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.data.mongodb.config.EnableMongoAuditing;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 @Configuration
+@EnableMongoAuditing
 @PropertySource(ignoreResourceNotFound = true, value = "classpath:env.properties")
 public class applicationConfig {
 
