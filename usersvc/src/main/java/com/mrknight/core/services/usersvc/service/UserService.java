@@ -1,6 +1,7 @@
 package com.mrknight.core.services.usersvc.service;
 
 import java.io.IOException;
+import java.util.List;
 
 import com.mrknight.core.services.usersvc.DTOs.UserDTO;
 import com.mrknight.core.services.usersvc.model.User;
@@ -26,6 +27,10 @@ public class UserService {
 
   public User getUser(String id) {
     return userRepo.findById(id).get();
+  }
+
+  public List<User> getAll() {
+    return userRepo.findAll();
   }
 
 }

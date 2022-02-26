@@ -5,22 +5,33 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 @RequiredArgsConstructor
+@ToString
 @Document("users")
 public class User {
 
   @Id
   private String id;
 
-  private final String username;
-  private final String password;
-  private final String name;
-  private final String lastname;
-  private final String email;
-  private final Boolean active;
+  @NonNull
+  private String username;
+  @NonNull
+  private String password;
+  @NonNull
+  private String name;
+  @NonNull
+  private String lastname;
+  @NonNull
+  private String email;
+  @NonNull
+  private Boolean active;
 
 }

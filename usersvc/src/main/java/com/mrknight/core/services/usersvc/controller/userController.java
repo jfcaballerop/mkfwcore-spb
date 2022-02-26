@@ -1,6 +1,7 @@
 package com.mrknight.core.services.usersvc.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import com.mrknight.core.services.usersvc.DTOs.UserDTO;
 import com.mrknight.core.services.usersvc.model.User;
@@ -25,7 +26,7 @@ public class userController {
   @GetMapping("echo")
   public ResponseEntity<String> echo() {
 
-    return ResponseEntity.ok("Echo Ping OK");
+    return ResponseEntity.ok("Echo Ping OK ");
 
   }
 
@@ -39,6 +40,11 @@ public class userController {
     } catch (IOException e) {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
     }
+  }
+
+  @GetMapping
+  public ResponseEntity<List<User>> getAll() {
+    return ResponseEntity.ok(userService.getAll());
   }
 
 }
