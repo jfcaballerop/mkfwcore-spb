@@ -55,3 +55,17 @@ Note that this config is in a non public File ***env.properties***.
 This file will be inject later for Jenkins in deploy.
 
 *Remember*: Add to .gitignore
+
+## Testing
+
+### ***@SpringBootTest***
+
+Remeber add this anotation before class name
+
+### **MockBean**
+
+Used *@MockBean* for Repos
+
+### **Optionals**
+
+Testing made with optional values.
