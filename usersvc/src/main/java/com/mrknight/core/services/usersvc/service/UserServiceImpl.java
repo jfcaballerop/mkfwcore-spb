@@ -2,7 +2,7 @@ package com.mrknight.core.services.usersvc.service;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.Optional;
 
 import com.mrknight.core.services.usersvc.DTOs.UserDTO;
 import com.mrknight.core.services.usersvc.model.User;
@@ -31,14 +31,10 @@ public class UserServiceImpl implements UserService {
 
   }
 
-  public User getUser(String id) {
+  public Optional<User> getUser(String id) {
     log.debug("\n*** GetUser ID: {}\n", id);
-    try {
-      User user = userRepo.findById(id).get();
-      return user;
-    } catch (NoSuchElementException e) {
-      return null;
-    }
+    Optional<User> user = userRepo.findById(id);
+    return user;
   }
 
   public List<User> getAll() {

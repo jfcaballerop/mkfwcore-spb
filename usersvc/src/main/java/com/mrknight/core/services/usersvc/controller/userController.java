@@ -2,6 +2,7 @@ package com.mrknight.core.services.usersvc.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 import com.mrknight.core.services.usersvc.DTOs.UserDTO;
 import com.mrknight.core.services.usersvc.model.User;
@@ -50,13 +51,13 @@ public class userController {
 
   @GetMapping("/{id}")
   public ResponseEntity<User> getUserById(@PathVariable String id) {
-    User user = userService.getUser(id);
-
-    if (user != null) {
-      return ResponseEntity.ok(user);
+    Optional<User> user = userService.getUser(id);
+    if (user.isPresent()) {
+      return ResponseEntity.ok(user.get());
     } else {
       return ResponseEntity.badRequest().body(null);
     }
+
   }
 
 }
